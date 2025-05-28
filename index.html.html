@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário Vetur Turismo</title>
+  <style>
+    body {
+      background-color: #0b1f35;
+      font-family: Arial, sans-serif;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background-color: #142b47;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .logo {
+      display: block;
+      margin: 0 auto 20px auto;
+      max-width: 150px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="LOGO_PATH_HERE" alt="Logo Vetur" class="logo">
+    <h2>Orçamento - Vetur Turismo</h2>
+
+    <label for="mes">🗓️ Qual mês ou período disponível para viagem?</label>
+    <input type="text" id="mes" required>
+
+    <label for="pessoas">👨‍👩‍👧‍👦 Quantas pessoas? E se tiver criança, qual a idade?</label>
+    <input type="text" id="pessoas" required>
+
+    <label for="cidade">✈️ Saindo de qual cidade?</label>
+    <input type="text" id="cidade" required>
+
+    <label for="destino">🌴 Pensou em algum destino?</label>
+    <input type="text" id="destino" required>
+
+    <label for="investimento">Quanto deseja investir? (Para encontrarmos o pacote ideal para o seu bolso)</label>
+    <input type="text" id="investimento" required>
+
+    <button onclick="enviarWhatsApp()">Enviar pelo WhatsApp</button>
+  </div>
+
+  <script>
+    function enviarWhatsApp() {
+      const mes = document.getElementById('mes').value;
+      const pessoas = document.getElementById('pessoas').value;
+      const cidade = document.getElementById('cidade').value;
+      const destino = document.getElementById('destino').value;
+      const investimento = document.getElementById('investimento').value;
+
+      const numeroAgencia = '5534991587344';
+
+      const mensagem = `Olá, você está em contato com a ‎VETUR TURISMO
+
+Devido a alta demanda estamos atendendo P/ORDEM de solicitação 🙏🏽✈️
+
+Para que possamos prosseguir com seu atendimento iremos precisar das seguintes informações:
+
+🗓️ Qual mês ou período disponível para viagem?
+${mes}
+
+👨‍👩‍👧‍👦 Quantas pessoas? E se tiver criança, qual a idade?
+${pessoas}
+
+✈️ Saindo de qual cidade?
+${cidade}
+
+🌴 Pensou em algum destino?
+${destino}
+
+Quanto deseja investir? (Para encontrarmos o pacote ideal para o seu bolso)
+${investimento}`;
+
+      const url = `https://wa.me/${numeroAgencia}?text=${encodeURIComponent(mensagem)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
